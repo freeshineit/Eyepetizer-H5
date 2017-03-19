@@ -24,6 +24,10 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'space-before-function-paren': 0,
-    'indent': 0
+    'indent': 0,
+    'eol-last': 0
+  },
+  globals: {
+    'Swiper': true
   }
 }

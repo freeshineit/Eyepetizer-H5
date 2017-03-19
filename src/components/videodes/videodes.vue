@@ -13,6 +13,7 @@
                 <div class="video-start"  v-show="play" @click.stop="player">
                     <span class='icon icon-bofang'></span>
                 </div>
+                <span class="video-play-back icon icon-xiala" v-show='show' @click.stop='hideDes' ></span>
         </div>
         <div class="video-info">
             <h1 class="video-title">{{video.title}}</h1>
@@ -43,6 +44,7 @@
 </template>
 
 <script>
+    import '@/assets/css/common.css'
     export default{
         props: {
             video: {type: Object,
@@ -50,7 +52,8 @@
                     return {}
                 }
             },
-            show: {type: Boolean}
+            show: {type: Boolean},
+            hideDes: {type: Function}
         },
         data() {
             return {
@@ -61,17 +64,13 @@
             }
         },
         mounted() {
-            console.log('mounted子', this.childShow)
         },
         created() {
-            console.log('c子', this.childShow)
-            console.log(this.deviceWidth)
         },
         computed: {
             Showdes: function() {
                 let show = false
                 show = this.show
-                console.log('computed', show)
                 return show
             }
         },
@@ -110,6 +109,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less' rel='stylesheet/less'>
+
     .video-play{
         position: fixed;
         top: 0;
@@ -180,6 +180,16 @@
                     font-size: 54px;
                 }
             }
+
+            &-play-back{
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                font-size: 30px;
+                color: #fff;
+                z-index: 2;
+                padding:5px;
+            }
         }
 
         .video-info{
@@ -246,13 +256,6 @@
                 float:left;
             }
             
-        }
-
-        @keyframes playCover
-        {
-            0% {transform: scale(1);}
-            50% {transform: scale(1.1);}
-            100% {transform: scale(1);}
         }
     }
 
