@@ -10,7 +10,8 @@
     import videodes from '@/components/videodes/videodes'
     import video from '@/components/video/video'
     export default{
-        props: {videos: {
+        props: {
+            videos: {
                 type: Object,
                 default() {
                     return {}

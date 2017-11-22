@@ -2,7 +2,7 @@
     <div class="select-box">
         <v-select-top></v-select-top>
         <div class="videos-list swiper-slide"  ref='vlist' @scroll="handleScroll" id='vlist' >
-            <v-videolist :videos='videos' :key='videos.date' v-for="videos in selects"></v-videolist> 
+            <v-videolist :videos='videos' :key='videos.date' v-for="videos in selects"></v-videolist>
             <div v-show='show' style='height:50px;'>loading.....</div>
         </div>
     </div>
@@ -51,7 +51,7 @@
                 this.loadState = false
                 this.show = true
                 this.$http.get(this.apiUrl).then(res => {
-                    res = res.body
+                    res = res.data
                     this.selects.push(res)
                     this.apiUrl = res.nextPageUrl
                     this.loadState = true
@@ -89,7 +89,7 @@
     .select{
         &-box{
             width: 100%;
-            height: 100%;   
+            height: 100%;
         }
         .video-list{
             width: 100%;
@@ -98,7 +98,7 @@
                 background-color: #FFF;
                 height:7.6%;
                 font-size: 16px;
-                line-height:48px; 
+                line-height:48px;
                 vertical-align: middle;
             }
 
