@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="content" ref='content'>
-        <router-view></router-view> 
+        <div class="containet_view">
+        	<router-view></router-view> 
+        </div>
         <v-footer ></v-footer>  
     </div>
   </div>
@@ -31,6 +33,12 @@
   }
 </script>
 
-<style lang='less' rel='stylesheet/less'>
-
+<style lang='less' scoped rel='stylesheet/less'>
+	.containet {
+		&_view{
+			position: absolute;
+			height: 100%;
+			width: 100%;
+		}
+	}
 </style>

@@ -44,7 +44,7 @@
 </template>
 
 <script>
-    import '@/assets/css/common.css'
+    // import '@/assets/css/common.css'
     export default{
       props: {
         video: {type: Object,
