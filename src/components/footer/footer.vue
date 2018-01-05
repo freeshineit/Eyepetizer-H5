@@ -1,38 +1,23 @@
 <template>
   <div class="footer">
-      <div class='tab border-1px'>
-        <div class="tab-item">
-          <router-link tag='a' to="/select" class='select'>
-            <span class="icon">
-            </span>
-            <span>精选</span>
-          </router-link>
-        </div>
-        <div class="tab-item">
-          <router-link tag='a' to="/find" class='find'>
-            <span class="icon">
-                <!-- <img :src="iconImg.find[1]" alt="" > -->
-            </span>
-            <span>发现</span>
-          </router-link>
-        </div>
-        <div class="tab-item">
-          <router-link tag='a' to="/follow" class='follow'>
-            <span class="icon">
-                <!-- <img :src="iconImg.follow[1]" alt="" > -->
-            </span>
-            <span> 关注</span>
-          </router-link>
-        </div>
-        <div class="tab-item" >
-          <router-link tag='a' to="/me" class='me'>
-            <span class="icon">
-                <!-- <img :src="iconImg.me[1]" alt="" > -->
-            </span>
-            <span>我的</span>
-          </router-link>
-        </div>
-      </div>
+        <mt-tabbar v-model="selected" @input='tabbarChange'>
+            <mt-tab-item id="/index" >
+              <span slot="icon" class='icon footer_index'></span>
+                首页
+            </mt-tab-item>
+            <mt-tab-item id="/find" >
+                <span slot="icon" class='icon footer_find'></span>
+                发现
+            </mt-tab-item>
+            <mt-tab-item id="/follow" >
+                <sapn slot="icon" class='icon footer_follow'></sapn>
+                关注
+            </mt-tab-item>
+            <mt-tab-item id="/profile" class='g-font-Lobster' >
+                <span slot="icon" class='icon footer_profile'></span>
+                我的
+            </mt-tab-item>
+        </mt-tabbar>
   </div>
 </template>
 
@@ -40,92 +25,85 @@
 export default {
     data() {
         return {
-            iconImg: {
-                select: [require('../../assets/images/footer/1-1.png'), require('../../assets/images/footer/2-1.png')],
-                find: [require('../../assets/images/footer/1-2.png'), require('../../assets/images/footer/2-2.png')],
-                follow: [require('../../assets/images/footer/1-3.png'), require('../../assets/images/footer/2-3.png')],
-                me: [require('../../assets/images/footer/1-4.png'), require('../../assets/images/footer/2-4.png')]
-            }
+            selected: this.$route.path
         }
     },
-     methods: {
-        changimg: function(e) {
+    mounted() {
+        this.switchTabber(this.selected)
+    },
+    methods: {
+        tabbarChange (id) {
+            console.log(this.$route)
+            this.switchTabber(id)
+        },
+        switchTabber(id) {
+            switch (id) {
+                case '/index' :
+                    this.$router.push('/index')
+                    console.log(document.querySelector('.footer_find img').attr)
+                     break
+                case '/find' :
+                    this.$router.push('/find')
+                    break
+                case '/follow' :
+                    this.$router.push('/follow')
+                     break
+                case '/profile' :
+                    this.$router.push('/profile')
+                    break
+            }
         }
      }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less' rel='stylesheet/less'>
-    @line-heihgt:47px;
     .footer{
-        width: 100%;
-        position: fixed;
-        z-index: 3;
-        bottom:0;
-        background-color:#FFF;
-        .tab{
-            display: flex;
-            height: @line-heihgt;
-            line-height:@line-heihgt; 
+        .mint-tabbar{
+            background-color: #fff;
+            background-image: none;
+            border-top: 1px solid #999;
 
-            &-item{
-                flex:1;
-                height:100%;
-                text-align: center;
-                a{
-                    display:block;
-                    color:#b2b2b2;
-                    font-size: 9px;
-                    padding:7px 3px 3px;
-                    &.active{
-                        color:#2f2f2f;
-                    }
-                    span{
-                        display: block;
-                        flex-direction: column;
-                        line-height:13px;
-                        margin-top:4px;
-                        background-repeat: no-repeat;
-                        background-size: 100%;
-                        font-size: 9px; 
-                        &.icon{
-                            line-height: 34px;
-                            width: 20px;
-                            height:21px;
-                            margin: 0 auto;
-                            background-image: url('../../assets/images/footer/2-1.png');   
-                        } 
-                    }
-                    &.select.active > .icon{
-                        background-image: url('../../assets/images/footer/1-1.png');
-                    }
-                    &.find{
-                        & > .icon{
-                            background-image: url('../../assets/images/footer/2-2.png');
-                        }
-                        &.active > .icon{
-                            background-image: url('../../assets/images/footer/1-2.png');
-                        }
-                    }
-                    &.follow{
-                        & > .icon{
-                            background-image: url('../../assets/images/footer/2-3.png');
-                        }
-                        &.active > .icon{
-                            background-image: url('../../assets/images/footer/1-3.png');
-                        }
-                    }
-                    &.me{
-                        & > .icon{
-                            background-image: url('../../assets/images/footer/2-4.png');
-                        }
-                        &.active > .icon{
-                            background-image: url('../../assets/images/footer/1-4.png');
-                        }
-                    }
-                }
+            .mint-tab-item{
+                color: #999;
             }
+            .mint-tab-item.is-selected{
+                background-color: transparent;
+                color: #000;
+            }
+        }
+    }
+</style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang='less' scoped rel='stylesheet/less'>
+    .footer{
+        .icon{
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .footer_index{ //首页
+            background-image: url('../../assets/images/footer/1-1.png');
+        }
+        .is-selected .footer_index{
+            background-image: url('../../assets/images/footer/1-2.png');
+        }
+        .footer_find{ // 发现
+            background-image: url('../../assets/images/footer/2-1.png');
+        }
+        .is-selected .footer_find{
+            background-image: url('../../assets/images/footer/2-2.png');
+        }
+        .footer_follow{ // 关注
+            background-image: url('../../assets/images/footer/3-1.png');
+        }
+        .is-selected .footer_follow{
+            background-image: url('../../assets/images/footer/3-2.png');
+        }
+        .footer_profile{ // 我的
+            background-image: url('../../assets/images/footer/4-1.png');
+        }
+        .is-selected .footer_profile{
+            background-image: url('../../assets/images/footer/4-2.png');
         }
     }
 </style>

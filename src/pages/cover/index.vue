@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-
+    import '@/assets/css/common.css'
     export default{
         data() {
             return {
@@ -26,8 +26,8 @@
         }
     }
 </script>
-<style lang='less' scoped rel='stylesheet/less'>
-    /*@import '../../assets/css/common.css';*/
+<style lang='less' rel='stylesheet/less'>
+
     .start{
         position: fixed;
         top: 0;

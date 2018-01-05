@@ -1,17 +1,12 @@
 <template>
   <div class="container">
       <v-start></v-start>
-      <v-content></v-content>
-      <v-footer ></v-footer> 
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
   import Start from '@/components/start/start'
-  import Content from '@/components/content/content'
-  import Footer from '@/components/footer/footer'
-  // import Swper from '@/components/test/text-swper'
-
   export default{
     name: 'app',
     data() {
@@ -20,9 +15,7 @@
       }
     },
     components: {
-      'v-start': Start,
-      'v-content': Content,
-      'v-footer': Footer
+      'v-start': Start
     }
   }
 </script>
