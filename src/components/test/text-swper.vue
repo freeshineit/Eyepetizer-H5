@@ -13,12 +13,12 @@
 <script>
   export default{
     name: 'app',
-    data() {
+    data () {
       return {
         select: {}
       }
     },
-    mounted() {
+    mounted () {
     },
     methods: {
     },

@@ -46,64 +46,64 @@
 <script>
     import '@/assets/css/common.css'
     export default{
-        props: {
-            video: {type: Object,
-                    default() {
-                    return {}
-                }
-            },
-            show: {type: Boolean},
-            hideDes: {type: Function}
+      props: {
+        video: {type: Object,
+          default () {
+            return {}
+          }
         },
-        data() {
-            return {
-                play: true,
-                deviceWidth: document.body.clientWidth,
-                videoEl: null,
-                childShow: this.show
-            }
-        },
-        mounted() {
-        },
-        created() {
-        },
-        computed: {
-            Showdes: function() {
-                let show = false
-                show = this.show
-                return show
-            }
-        },
-        watch: {
-            show: function() {
-                if (!this.show) {
-                    this.$refs.video.pause()
-                    this.play = true
-                }
-            }
-        },
-        methods: {
-            reLoadVodeo: function() {
-            },
-            player: function() {
-                this.$refs.video.load()
-                this.$options.methods.launchFullscreen(this.$refs.video)
-                this.$refs.video.play()
-                this.play = !this.play
-                return false
-            },
-            launchFullscreen: function(element) {
-                  if (element.requestFullscreen) {
-                    element.requestFullscreen()
-                  } else if (element.mozRequestFullScreen) {
-                    element.mozRequestFullScreen()
-                  } else if (element.webkitRequestFullscreen) {
-                    element.webkitRequestFullscreen()
-                  } else if (element.msRequestFullscreen) {
-                    element.msRequestFullscreen()
-                  }
-            }
+        show: {type: Boolean},
+        hideDes: {type: Function}
+      },
+      data () {
+        return {
+          play: true,
+          deviceWidth: document.body.clientWidth,
+          videoEl: null,
+          childShow: this.show
         }
+      },
+      mounted () {
+      },
+      created () {
+      },
+      computed: {
+        Showdes: function () {
+          let show = false
+          show = this.show
+          return show
+        }
+      },
+      watch: {
+        show: function () {
+          if (!this.show) {
+            this.$refs.video.pause()
+            this.play = true
+          }
+        }
+      },
+      methods: {
+        reLoadVodeo: function () {
+        },
+        player: function () {
+          this.$refs.video.load()
+          this.$options.methods.launchFullscreen(this.$refs.video)
+          this.$refs.video.play()
+          this.play = !this.play
+          return false
+        },
+        launchFullscreen: function (element) {
+          if (element.requestFullscreen) {
+            element.requestFullscreen()
+          } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen()
+          } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen()
+          } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen()
+          }
+        }
+      }
     }
 </script>
 

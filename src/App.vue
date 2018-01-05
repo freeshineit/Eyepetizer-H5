@@ -9,7 +9,7 @@
   import Start from '@/components/start/start'
   export default{
     name: 'app',
-    data() {
+    data () {
       return {
         select: {}
       }

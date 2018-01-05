@@ -13,16 +13,16 @@
 
   export default{
     name: 'app',
-    data() {
+    data () {
       return {
         select: {}
       }
     },
-    mounted: function() {
-        let _this = this
-        setTimeout(() => {
-            _this.$refs.content.style.left = '0px'
-        }, 1500)
+    mounted: function () {
+      let _this = this
+      setTimeout(() => {
+        _this.$refs.content.style.left = '0px'
+      }, 1500)
     },
     components: {
       'v-content': Content,

@@ -10,7 +10,7 @@
                 发现
             </mt-tab-item>
             <mt-tab-item id="/follow" >
-                <sapn slot="icon" class='icon footer_follow'></sapn>
+                <span slot="icon" class='icon footer_follow'></span>
                 关注
             </mt-tab-item>
             <mt-tab-item id="/profile" class='g-font-Lobster' >
@@ -23,37 +23,35 @@
 
 <script>
 export default {
-    data() {
-        return {
-            selected: this.$route.path
-        }
+  data () {
+    return {
+      selected: this.$route.path
+    }
+  },
+  mounted () {
+    this.switchTabber(this.selected)
+  },
+  methods: {
+    tabbarChange (id) {
+      this.switchTabber(id)
     },
-    mounted() {
-        this.switchTabber(this.selected)
-    },
-    methods: {
-        tabbarChange (id) {
-            console.log(this.$route)
-            this.switchTabber(id)
-        },
-        switchTabber(id) {
-            switch (id) {
-                case '/index' :
-                    this.$router.push('/index')
-                    console.log(document.querySelector('.footer_find img').attr)
-                     break
-                case '/find' :
-                    this.$router.push('/find')
-                    break
-                case '/follow' :
-                    this.$router.push('/follow')
-                     break
-                case '/profile' :
-                    this.$router.push('/profile')
-                    break
-            }
-        }
-     }
+    switchTabber (id) {
+      switch (id) {
+        case '/index' :
+          this.$router.push('/index')
+          break
+        case '/find' :
+          this.$router.push('/find')
+          break
+        case '/follow' :
+          this.$router.push('/follow')
+          break
+        case '/profile' :
+          this.$router.push('/profile')
+          break
+      }
+    }
+  }
 }
 </script>
 

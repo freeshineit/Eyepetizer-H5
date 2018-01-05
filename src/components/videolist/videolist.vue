@@ -10,37 +10,37 @@
     import videodes from '@/components/videodes/videodes'
     import video from '@/components/video/video'
     export default{
-        props: {
-            videos: {
-                type: Object,
-                default() {
-                    return {}
-                }
-            }
-        },
-        data() {
-            return {
-                show: false,
-                selectedVideo: {}
-            }
-        },
-        mounted: function() {
-        },
-        methods: {
-            spread: function(video, event) {
-                this.show = !this.show
-                this.selectedVideo = video
-                return false
-            },
-            hideDes: function() {
-                this.show = !this.show
-                return false
-            }
-        },
-        components: {
-            'v-videodes': videodes,
-            'v-video': video
+      props: {
+        videos: {
+          type: Object,
+          default () {
+            return {}
+          }
         }
+      },
+      data () {
+        return {
+          show: false,
+          selectedVideo: {}
+        }
+      },
+      mounted: function () {
+      },
+      methods: {
+        spread: function (video, event) {
+          this.show = !this.show
+          this.selectedVideo = video
+          return false
+        },
+        hideDes: function () {
+          this.show = !this.show
+          return false
+        }
+      },
+      components: {
+        'v-videodes': videodes,
+        'v-video': video
+      }
     }
 </script>
 

@@ -2,17 +2,16 @@
     <div> index</div>
 </template>
 <script>
-
     export default {
-        name: 'index',
-        data () {
-            return {
+      name: 'index',
+      data () {
+        return {
 
-            }
-        },
-        methods: {
-        },
-        components: {
         }
+      },
+      methods: {
+      },
+      components: {
+      }
     }
 </script>

@@ -9,30 +9,30 @@
 
 <script>
     export default{
-        props: {
-            video: {
-                type: Object,
-                default() {
-                    return {}
-                }
-            },
-            spread: {
-                type: Function
-            }
+      props: {
+        video: {
+          type: Object,
+          default () {
+            return {}
+          }
         },
-        data() {
-            return {
-                show: false,
-                selectedVideo: {}
-            }
-        },
-        mounted: function() {
-        },
-        methods: {
-            hideDes: function() {
-                this.show = !this.show
-            }
+        spread: {
+          type: Function
         }
+      },
+      data () {
+        return {
+          show: false,
+          selectedVideo: {}
+        }
+      },
+      mounted: function () {
+      },
+      methods: {
+        hideDes: function () {
+          this.show = !this.show
+        }
+      }
     }
 </script>
 

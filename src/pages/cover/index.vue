@@ -8,22 +8,22 @@
 <script>
     import '@/assets/css/common.css'
     export default{
-        data() {
-            return {
-                show: true,
-                transitionName: 'fade'
-            }
-        },
-        mounted: function() {
-            let _this = this
-            setTimeout(() => {
-                _this.$refs.start.style.left = '-100%'
-                _this.$refs.start.style.opacity = '0.5'
-            }, 1500)
-            setTimeout(() => {
-                this.show = !this.show
-            }, 1800)
+      data () {
+        return {
+          show: true,
+          transitionName: 'fade'
         }
+      },
+      mounted: function () {
+        let _this = this
+        setTimeout(() => {
+          _this.$refs.start.style.left = '-100%'
+          _this.$refs.start.style.opacity = '0.5'
+        }, 1500)
+        setTimeout(() => {
+          this.show = !this.show
+        }, 1800)
+      }
     }
 </script>
 <style lang='less' rel='stylesheet/less'>

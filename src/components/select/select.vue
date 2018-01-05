@@ -13,64 +13,64 @@
     import SelectTop from '@/components/selecttop/selecttop'
 
     export default{
-        data() {
-            return {
-                selects: [],
-                coverimg: require('../../assets/images/cover.png'),
-                apiUrl: '',
-                newDate: '',
-                nextDate: '20170318',
-                wHeight: '0',
-                loadState: true,
-                show: false
-            }
-        },
-        mounted: function() {
-            this.loadvideo()
-        },
-        created() {
-            let d = new Date()
-            let day = d.getDate()
-            let month = d.getMonth() + 1
-
-            month = (month > 9) ? month : '0' + month
-
-            let year = d.getFullYear()
-            this.nextDate = year + '' + month + day
-
-            this.apiUrl = 'http://baobab.kaiyanapp.com/api/v1/feed?date=' + this.nextDate + '&num=1'
-        },
-        methods: {
-            loadvideo: function() {
-                let newPageUrl = ''
-
-                if (!(newPageUrl !== this.apiUrl && this.loadState)) {
-                    return false
-                }
-                newPageUrl = this.apiUrl
-                this.loadState = false
-                this.show = true
-                this.$http.get(this.apiUrl).then(res => {
-                    res = res.data
-                    this.selects.push(res)
-                    this.apiUrl = res.nextPageUrl
-                    this.loadState = true
-                    this.show = false
-                })
-            },
-            handleClick: function() {
-            },
-            handleScroll: function(e) {
-                let loadHight = 100
-                let currentScrollPosition = e.srcElement.scrollTop + window.screen.availHeight + 272 + loadHight
-                let domTop = document.getElementById('vlist').scrollHeight
-                currentScrollPosition > domTop && this.loadvideo()
-            }
-        },
-        components: {
-          'v-videolist': VideoList,
-          'v-select-top': SelectTop
+      data () {
+        return {
+          selects: [],
+          coverimg: require('../../assets/images/cover.png'),
+          apiUrl: '',
+          newDate: '',
+          nextDate: '20170318',
+          wHeight: '0',
+          loadState: true,
+          show: false
         }
+      },
+      mounted: function () {
+        this.loadvideo()
+      },
+      created () {
+        let d = new Date()
+        let day = d.getDate()
+        let month = d.getMonth() + 1
+
+        month = (month > 9) ? month : '0' + month
+
+        let year = d.getFullYear()
+        this.nextDate = year + '' + month + day
+
+        this.apiUrl = 'http://baobab.kaiyanapp.com/api/v1/feed?date=' + this.nextDate + '&num=1'
+      },
+      methods: {
+        loadvideo: function () {
+          let newPageUrl = ''
+
+          if (!(newPageUrl !== this.apiUrl && this.loadState)) {
+            return false
+          }
+          newPageUrl = this.apiUrl
+          this.loadState = false
+          this.show = true
+          this.$http.get(this.apiUrl).then(res => {
+            res = res.data
+            this.selects.push(res)
+            this.apiUrl = res.nextPageUrl
+            this.loadState = true
+            this.show = false
+          })
+        },
+        handleClick: function () {
+        },
+        handleScroll: function (e) {
+          let loadHight = 100
+          let currentScrollPosition = e.srcElement.scrollTop + window.screen.availHeight + 272 + loadHight
+          let domTop = document.getElementById('vlist').scrollHeight
+          currentScrollPosition > domTop && this.loadvideo()
+        }
+      },
+      components: {
+        'v-videolist': VideoList,
+        'v-select-top': SelectTop
+      }
     }
 </script>
 
