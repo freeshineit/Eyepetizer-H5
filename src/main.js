@@ -9,7 +9,7 @@ import 'mint-ui/lib/style.css'
 import './assets/less/index.less'
 
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
+Vue.prototype.$axios = axios
 
 Vue.use(Mint)
 

@@ -16,6 +16,7 @@
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "mint-ui": "^2.2.13",
+    "moment": "^2.20.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
@@ -42,7 +43,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",

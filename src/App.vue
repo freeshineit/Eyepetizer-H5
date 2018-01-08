@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="clearfix container">
       <v-start></v-start>
       <router-view></router-view>
   </div>

@@ -1,3 +1,16 @@
+@import './icon.less';
+
 .g-font-Lobster{
     font-family: 'Lobster';
+}
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
 }

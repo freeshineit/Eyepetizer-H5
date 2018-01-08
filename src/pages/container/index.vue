@@ -35,7 +35,9 @@
 
 <style lang='less' scoped rel='stylesheet/less'>
 	.containet {
+		
 		&_view{
+			background: #ededed;
 			position: absolute;
 			height: 100%;
 			width: 100%;
