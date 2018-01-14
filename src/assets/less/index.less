@@ -1,8 +1,5 @@
 @import './icon.less';
-
-.g-font-Lobster{
-    font-family: 'Lobster';
-}
+@import './text.less';
 
 .clearfix() {
   &:before,
@@ -13,4 +10,15 @@
   &:after {
     clear: both;
   }
+}
+
+.g-clearfix{
+	.clearfix() 
+}
+.g-fl{
+	float: left
+}
+
+.g-fr{
+	float: right
 }

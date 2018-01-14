@@ -3,13 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
+import Axios from 'axios'
 import Mint from 'mint-ui'
+import Utils from './assets/js/index'
 import 'mint-ui/lib/style.css'
 import './assets/less/index.less'
 
 Vue.config.productionTip = false
-Vue.prototype.$axios = axios
+Vue.prototype.$axios = Axios
+Vue.prototype.$utils = Utils
 
 Vue.use(Mint)
 

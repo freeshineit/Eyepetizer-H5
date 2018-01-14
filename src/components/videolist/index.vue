@@ -6,7 +6,7 @@
 
 <script>
     // import videodes from '@/components/videodes/videodes'
-    import Video from '@/components/video/video'
+    import Video from '@/components/video/index'
     export default{
       props: {
         videoList: {

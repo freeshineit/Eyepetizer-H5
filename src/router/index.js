@@ -23,7 +23,10 @@ export default new Router({
 				name: 'index',
 				component: Index
 			}, { // 发现
-				path: '/find',
+				path: '/find/',
+				redirect: '/find/hot'
+			}, { // 发现
+				path: '/find/:id',
 				name: 'find',
 				component: Find
 			}, { // 关注
